@@ -1,5 +1,5 @@
 {
-  "name": "arkanoid",
+  "name": "dx-ball",
   "devDependencies": {
     "html-webpack-plugin": "3.2.0",
     "husky": "4.2.1",
