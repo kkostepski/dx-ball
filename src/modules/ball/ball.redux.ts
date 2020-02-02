@@ -13,16 +13,41 @@ import {
   BALL_IS_FIERY,
 } from './ball.model'
 
+interface ActionSetPositionModel {
+  x?: number
+  y?: number
+}
+
+const initialState: BallStateModel = {
+  speed: BALL_SPEED_INITIAL,
+  size: BALL_SIZE_INITIAL,
+  count: BALL_COUNT_INITIAL,
+  isPassingBricks: BALL_IS_PASSING_BRICKS,
+  isFiery: BALL_IS_FIERY,
+  position: {
+    x: 0,
+    y: 0,
+  },
+}
+
 const ballSlice = createSlice({
   name: 'player',
-  initialState: {
-    speed: BALL_SPEED_INITIAL,
-    size: BALL_SIZE_INITIAL,
-    count: BALL_COUNT_INITIAL,
-    isPassingBricks: BALL_IS_PASSING_BRICKS,
-    isFiery: BALL_IS_FIERY,
-  } as BallStateModel,
+  initialState,
   reducers: {
+    setPosition(
+      state: BallStateModel,
+      action: PayloadAction<ActionSetPositionModel>
+    ) {
+      const { x, y } = action.payload
+
+      if (x) {
+        state.position.x = x
+      }
+
+      if (y) {
+        state.position.y = y
+      }
+    },
     increaseSpeed(state: BallStateModel) {
       const speed = state.speed + 1
 
@@ -69,6 +94,7 @@ const ballSlice = createSlice({
 })
 
 export const {
+  setPosition,
   increaseSpeed,
   decreaseSpeed,
   increaseSize,

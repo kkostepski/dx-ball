@@ -428,25 +428,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"arkanoid@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "arkanoid@workspace:."
-  dependencies:
-    "@reduxjs/toolkit": 1.2.3
-    html-webpack-plugin: 3.2.0
-    husky: 4.2.1
-    prettier: 1.19.1
-    pretty-quick: 2.0.1
-    redux: 4.0.5
-    source-map-loader: 0.2.4
-    ts-loader: 6.2.1
-    typescript: 3.7.5
-    webpack: 4.41.5
-    webpack-cli: 3.3.10
-    webpack-dev-server: 3.10.2
-  languageName: unknown
-  linkType: soft
-
 "arr-diff@npm:^4.0.0":
   version: 4.0.0
   resolution: "arr-diff@npm:4.0.0"
@@ -1769,6 +1750,25 @@ __metadata:
   checksum: 2c77a6ba6ba8db9241050ed874291b32eb2a72870198c28b56b47012d82852dd6353478295108bf6f336192ae7abc14b565f79758433e8c0878dc5dea5d49df8
   languageName: node
   linkType: hard
+
+"dx-ball@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "dx-ball@workspace:."
+  dependencies:
+    "@reduxjs/toolkit": 1.2.3
+    html-webpack-plugin: 3.2.0
+    husky: 4.2.1
+    prettier: 1.19.1
+    pretty-quick: 2.0.1
+    redux: 4.0.5
+    source-map-loader: 0.2.4
+    ts-loader: 6.2.1
+    typescript: 3.7.5
+    webpack: 4.41.5
+    webpack-cli: 3.3.10
+    webpack-dev-server: 3.10.2
+  languageName: unknown
+  linkType: soft
 
 "ecc-jsbn@npm:~0.1.1":
   version: 0.1.2

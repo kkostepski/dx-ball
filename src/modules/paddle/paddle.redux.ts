@@ -14,14 +14,16 @@ interface ActionMoveToPositionPayloadModel {
   position: number
 }
 
+const initialState: PaddleStateModel = {
+  size: PADDLE_SIZE_INITIAL,
+  position: PADDLE_POSITION,
+  hasGuns: PADDLE_HAS_GUNS,
+  isMagnetic: PADDLE_IS_MAGNETIC,
+}
+
 const paddleSlice = createSlice({
   name: 'paddle',
-  initialState: {
-    size: PADDLE_SIZE_INITIAL,
-    position: PADDLE_POSITION,
-    hasGuns: PADDLE_HAS_GUNS,
-    isMagnetic: PADDLE_IS_MAGNETIC,
-  } as PaddleStateModel,
+  initialState,
   reducers: {
     increaseSize(state: PaddleStateModel) {
       const size = state.size + 10

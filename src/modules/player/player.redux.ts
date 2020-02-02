@@ -15,13 +15,15 @@ interface AddRemoveLifePayloadModel {
   livesCount: number
 }
 
+const initialState: PlayerStateModel = {
+  name: PLAYER_NAME,
+  lives: LIVES_COUNT,
+  score: 0,
+}
+
 const playerSlice = createSlice({
   name: 'player',
-  initialState: {
-    name: PLAYER_NAME,
-    lives: LIVES_COUNT,
-    score: 0,
-  } as PlayerStateModel,
+  initialState,
   reducers: {
     setName(
       state: PlayerStateModel,

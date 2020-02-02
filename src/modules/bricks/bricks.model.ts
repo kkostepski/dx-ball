@@ -46,9 +46,19 @@ export enum BONUS_TYPE {
   DEATH = 'DEATH',
 }
 
+export const BRICK_WIDTH = 75
+export const BRICK_HEIGHT = 20
+export const BRICK_PADDING = 10
+export const BRICK_OFFSET_TOP = 60
+export const BRICK_OFFSET_LEFT = 30
+
 export interface BrickStateModel {
   type: BRICK_TYPE
   bonus: BONUS_TYPE | null
+  position: {
+    x: number,
+    y: number
+  }
 }
 
-export type BricksStateModel = BrickStateModel[][]
+export type BricksStateModel = (BrickStateModel | null)[][]
