@@ -46,17 +46,38 @@ export enum BONUS_TYPE {
   DEATH = 'DEATH',
 }
 
-export const BRICK_WIDTH = 75
-export const BRICK_HEIGHT = 20
-export const BRICK_PADDING = 10
+type BricksImageSpriteMapModel = { [key in BRICK_TYPE]: [number, number] }
+
+export const BRICK_WIDTH_SPRITE = 30
+export const BRICK_HEIGHT_SPRITE = 15
+export const BRICK_WIDTH = 60
+export const BRICK_HEIGHT = 30
+export const BRICK_PADDING = 1
 export const BRICK_OFFSET_TOP = 60
 export const BRICK_OFFSET_LEFT = 30
+// TODO:
+// @ts-ignore
+export const bricksImageSpriteMap: BricksImageSpriteMapModel = {
+  [BRICK_TYPE.RED]: [0, 0],
+  [BRICK_TYPE.DARK_BLUE]: [0, 16],
+  [BRICK_TYPE.GREEN]: [0, 32],
+}
+
+type BrickPositionForCanvasModel = [number, number, number, number]
+
+export const getBrickPositionForCanvas = (
+  brickType: BRICK_TYPE
+): BrickPositionForCanvasModel => {
+  const [x, y] = bricksImageSpriteMap[brickType]
+
+  return [x, y, BRICK_WIDTH_SPRITE, BRICK_HEIGHT_SPRITE]
+}
 
 export interface BrickStateModel {
   type: BRICK_TYPE
   bonus: BONUS_TYPE | null
   position: {
-    x: number,
+    x: number
     y: number
   }
 }

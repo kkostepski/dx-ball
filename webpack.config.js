@@ -17,6 +17,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|svg|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'file-loader' }],
+      },
+      {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: [
@@ -29,7 +34,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader',
-      },
+      }
     ],
   },
   devServer: {
