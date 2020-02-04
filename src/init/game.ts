@@ -4,7 +4,9 @@ import { LEVEL_1 } from 'config/levels'
 import {
   BRICK_WIDTH,
   BRICK_HEIGHT,
-  getBrickPositionForCanvas,
+  BRICK_WIDTH_SPRITE,
+  BRICK_HEIGHT_SPRITE,
+  bricksImageSpriteMap,
 } from 'modules/bricks/bricks.model'
 import bricksImageSprite from 'assets/images/bricks.png'
 
@@ -28,7 +30,13 @@ const drawBricks = () => {
   bricks.forEach(columns => {
     columns.forEach(brick => {
       if (brick != null) {
-        const canvasPosition = getBrickPositionForCanvas(brick.type)
+        const [x, y] = bricksImageSpriteMap[brick.type]
+        const canvasPosition = [
+          x,
+          y,
+          BRICK_WIDTH_SPRITE,
+          BRICK_HEIGHT_SPRITE,
+        ]
 
         ctx.drawImage(
           bricksImage,
@@ -48,8 +56,8 @@ const drawBricks = () => {
 
 const drawGame = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
-  ctx.fillStyle = '#000';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#000'
+  ctx.fillRect(0, 0, canvas.width, canvas.height)
   drawBricks()
 
   requestAnimationFrame(drawGame)

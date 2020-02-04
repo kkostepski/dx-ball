@@ -55,22 +55,29 @@ export const BRICK_HEIGHT = 30
 export const BRICK_PADDING = 1
 export const BRICK_OFFSET_TOP = 60
 export const BRICK_OFFSET_LEFT = 30
-// TODO:
-// @ts-ignore
+// TODO
 export const bricksImageSpriteMap: BricksImageSpriteMapModel = {
   [BRICK_TYPE.RED]: [0, 0],
   [BRICK_TYPE.DARK_BLUE]: [0, 16],
   [BRICK_TYPE.GREEN]: [0, 32],
-}
-
-type BrickPositionForCanvasModel = [number, number, number, number]
-
-export const getBrickPositionForCanvas = (
-  brickType: BRICK_TYPE
-): BrickPositionForCanvasModel => {
-  const [x, y] = bricksImageSpriteMap[brickType]
-
-  return [x, y, BRICK_WIDTH_SPRITE, BRICK_HEIGHT_SPRITE]
+  [BRICK_TYPE.INDESTRUCTIBLE_YELLOW]: [31, 0],
+  [BRICK_TYPE.VIOLET]: [31, 16],
+  [BRICK_TYPE.BROWN]: [31, 32],
+  [BRICK_TYPE.CYAN]: [0, 0],
+  [BRICK_TYPE.BLUE]: [0, 0],
+  [BRICK_TYPE.ORANGE]: [0, 0],
+  [BRICK_TYPE.MAGENTA]: [0, 0],
+  [BRICK_TYPE.PINK]: [0, 0],
+  [BRICK_TYPE.DARK_PINK]: [0, 0],
+  [BRICK_TYPE.TURQUOISE]: [0, 0],
+  [BRICK_TYPE.INDESTRUCTIBLE_PINK]: [0, 0],
+  [BRICK_TYPE.INVISIBLE]: [0, 0],
+  [BRICK_TYPE.ILLUMINATED]: [0, 0],
+  [BRICK_TYPE.SPECIAL_PINK]: [0, 0],
+  [BRICK_TYPE.SPECIAL_BLACK_LIGHT]: [0, 0],
+  [BRICK_TYPE.SPECIAL_BLACK_MEDIUM]: [0, 0],
+  [BRICK_TYPE.SPECIAL_BLACK_DARK]: [0, 0],
+  [BRICK_TYPE.DARK_GREEN]: [0, 0],
 }
 
 export interface BrickStateModel {
