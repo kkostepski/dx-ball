@@ -20,7 +20,7 @@ const ctx = <CanvasRenderingContext2D>canvas.getContext('2d')
 if (!canvas) {
   throw new Error('No canvas found!')
 }
-console.log('bricksImageSprite', bricksImageSprite)
+
 const bricks = store.getState().bricks
 
 const bricksImage = new Image(340, 47)
