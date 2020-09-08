@@ -1,4 +1,4 @@
-export interface BallStateModel {
+export type BallStateModel = {
   speed: number
   size: number
   count: number
@@ -8,6 +8,19 @@ export interface BallStateModel {
     x: number
     y: number
   }
+  movingDirection: {
+    x: number
+    y: number
+  }
+}
+
+export type ActionSetPositionModel = {
+  x?: number
+  y?: number
+}
+export type ActionSetMovingDirectionModel = {
+  x?: number
+  y?: number
 }
 
 export const BALL_SPEED_INITIAL = 5

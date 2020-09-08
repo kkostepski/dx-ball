@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit'
 
+import { RootStateModel } from 'init/redux'
 import {
   BallStateModel,
+  ActionSetPositionModel,
   BALL_SPEED_INITIAL,
   BALL_SPEED_MINIMUM,
   BALL_SPEED_MAXIMUM,
@@ -11,12 +13,8 @@ import {
   BALL_COUNT_INITIAL,
   BALL_IS_PASSING_BRICKS,
   BALL_IS_FIERY,
+  ActionSetMovingDirectionModel,
 } from './ball.model'
-
-interface ActionSetPositionModel {
-  x?: number
-  y?: number
-}
 
 const initialState: BallStateModel = {
   speed: BALL_SPEED_INITIAL,
@@ -28,10 +26,14 @@ const initialState: BallStateModel = {
     x: 0,
     y: 0,
   },
+  movingDirection: {
+    x: 1,
+    y: -1,
+  },
 }
 
 const ballSlice = createSlice({
-  name: 'player',
+  name: 'ball',
   initialState,
   reducers: {
     setPosition(
@@ -46,6 +48,20 @@ const ballSlice = createSlice({
 
       if (y) {
         state.position.y = y
+      }
+    },
+    setMovingDirection(
+      state: BallStateModel,
+      action: PayloadAction<ActionSetMovingDirectionModel>
+    ) {
+      const { x, y } = action.payload
+
+      if (x) {
+        state.movingDirection.x = x
+      }
+
+      if (y) {
+        state.movingDirection.y = y
       }
     },
     increaseSpeed(state: BallStateModel) {
@@ -93,8 +109,27 @@ const ballSlice = createSlice({
   },
 })
 
+const getSize = (state: RootStateModel): BallStateModel['size'] =>
+  state.ball.size
+const getRadius = createSelector(getSize, (size) => size * 2)
+const getPosition = (state: RootStateModel): BallStateModel['position'] => ({
+  x: state.ball.position.x,
+  y: state.ball.position.y,
+})
+const getMovingDirection = (
+  state: RootStateModel
+): BallStateModel['movingDirection'] => ({
+  x: state.ball.movingDirection.x,
+  y: state.ball.movingDirection.y,
+})
+const getSpeed = (state: RootStateModel): BallStateModel['speed'] =>
+  state.ball.speed
+
+export { getSize, getRadius, getPosition, getMovingDirection, getSpeed }
+
 export const {
   setPosition,
+  setMovingDirection,
   increaseSpeed,
   decreaseSpeed,
   increaseSize,

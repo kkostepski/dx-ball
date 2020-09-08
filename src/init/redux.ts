@@ -16,4 +16,7 @@ const store = configureStore({
   middleware: [...getDefaultMiddleware()],
 })
 
-export default store
+type RootStateModel = ReturnType<typeof rootReducer>
+
+export { RootStateModel }
+export const { dispatch, getState } = store

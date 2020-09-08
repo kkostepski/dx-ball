@@ -34,13 +34,14 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader',
-      }
+      },
     ],
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    watchContentBase: true,
   },
   plugins: [
     new webpack.ProgressPlugin(),
