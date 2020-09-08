@@ -74,15 +74,15 @@ const moveBall = () => {
   const ballMovingDirection = getMovingDirection(getState())
   const ballRadius = getRadius(getState())
 
-  const nextBallPositionX = (x + ballSpeed) * ballMovingDirection.x
-  const nextBallPositionY = (y + ballSpeed) * ballMovingDirection.y
+  const nextBallPositionX = x + ballSpeed * ballMovingDirection.x
+  const nextBallPositionY = y + ballSpeed * ballMovingDirection.y
 
-  const isTouchingRightEdge = nextBallPositionX > canvas.width - ballRadius
-  const isTouchingLeftEdge = nextBallPositionX < ballRadius
-  const isTouchingBottomEdge = nextBallPositionY > canvas.height - ballRadius
-  const isTouchingTopEdge = nextBallPositionY < ballRadius
+  const isPassedRightEdge = nextBallPositionX > canvas.width - ballRadius
+  const isPassedLeftEdge = nextBallPositionX < ballRadius
+  const isPassedBottomEdge = nextBallPositionY > canvas.height - ballRadius
+  const isPassedTopEdge = nextBallPositionY < ballRadius
 
-  if (isTouchingRightEdge || isTouchingLeftEdge) {
+  if (isPassedRightEdge || isPassedLeftEdge) {
     dispatch(
       setMovingDirection({
         x: -ballMovingDirection.x,
@@ -90,7 +90,7 @@ const moveBall = () => {
     )
   }
 
-  if (isTouchingBottomEdge || isTouchingTopEdge) {
+  if (isPassedBottomEdge || isPassedTopEdge) {
     dispatch(
       setMovingDirection({
         y: -ballMovingDirection.y,
