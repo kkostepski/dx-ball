@@ -80,7 +80,7 @@ export const bricksImageSpriteMap: BricksImageSpriteMapModel = {
   [BRICK_TYPE.INVISIBLE]: [310, 0],
 }
 
-export interface BrickStateModel {
+export type BrickStateModel = {
   type: BRICK_TYPE
   bonus: BONUS_TYPE | null
   position: {

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { RootStateModel } from 'init/redux'
 import {
   BRICK_TYPE,
   BONUS_TYPE,
@@ -45,9 +46,10 @@ const bricksSlice = createSlice({
   },
 })
 
-const random = (min: number, max: number): number => {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
+const random = (min: number, max: number): number =>
+  Math.floor(Math.random() * (max - min + 1) + min)
+
+const getBricks = (state: RootStateModel): BricksStateModel => state.bricks
 
 export const { createBricks } = bricksSlice.actions
 export default bricksSlice.reducer
