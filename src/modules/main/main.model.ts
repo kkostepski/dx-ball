@@ -3,7 +3,7 @@ import { PlayerStateModel } from 'modules/player/player.model'
 import { BallStateModel } from 'modules/ball/ball.model'
 import { BrickStateModel } from 'modules/bricks/bricks.model'
 
-export interface GameStateModel {
+export type GameStateModel = {
   paddle: PaddleStateModel
   player: PlayerStateModel
   ball: BallStateModel

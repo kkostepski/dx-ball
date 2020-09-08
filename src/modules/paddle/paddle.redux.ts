@@ -10,7 +10,7 @@ import {
   PADDLE_IS_MAGNETIC,
 } from './paddle.model'
 
-interface ActionMoveToPositionPayloadModel {
+type ActionMoveToPositionPayloadModel = {
   position: number
 }
 

@@ -3,15 +3,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { PLAYER_NAME, LIVES_COUNT } from 'modules/main/main.model'
 import { PlayerStateModel } from './player.model'
 
-interface SetNamePayloadModel {
+type SetNamePayloadModel = {
   name: string
 }
 
-interface AddScorePayloadModel {
+type AddScorePayloadModel = {
   score: number
 }
 
-interface AddRemoveLifePayloadModel {
+type AddRemoveLifePayloadModel = {
   livesCount: number
 }
 

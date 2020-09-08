@@ -1,4 +1,4 @@
-export interface PaddleStateModel {
+export type PaddleStateModel = {
   size: number
   position: number
   hasGuns: boolean
